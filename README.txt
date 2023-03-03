@@ -9,9 +9,6 @@ py -m venv env
 #verified I was using the virtual environment using the command:
 where python
 
-# Installed the "Requests" package using the command:
-py -m pip install requests
-
 # Installed Jupyter Notebook using the command:
 pip install notebook
 
@@ -21,3 +18,10 @@ pip install notebook
 #Ran Jupyter Notebook using the command:
 jupyter notebook
 
+
+# Experimented with Git as per Pavlo's direction:
+# 1. Create repo with initial empty commit to "master" branch.
+# 2. Locally create new branch from master lets name it for example "james-issue-1".
+# 3. Make changes in "james-issue-1".
+# 4. Push "james-issue-1" to github.
+# 5. Create Pull Request from "james-issue-1" to "master".
