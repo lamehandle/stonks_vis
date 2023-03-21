@@ -15,6 +15,10 @@
 # install required packages using the command:
     pip install -r requirements.txt
 
-#Ran Jupyter Notebook using the command:
+#Ran Jupyter Notebooks using the command:
     jupyter notebook
+
+****    new steps   ****
+#installed mlpFinance using the command
+pip install --upgrade mplfinance
 
