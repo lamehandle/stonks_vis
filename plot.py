@@ -1,6 +1,6 @@
 import pandas as pd
 import mplfinance as mpf
-
+import yfinance as yf
 
 data = pd.DataFrame([
     {'date': '2019-11-01', 'open': 3050.72, 'high': 3066.95, 'low': 3050.72, 'close': 3066.91, 'volume': 510301237},
@@ -10,6 +10,10 @@ data = pd.DataFrame([
     {'date': '2019-11-27', 'open': 3145.49, 'high': 3154.26, 'low': 3143.41, 'close': 3153.63, 'volume': 421853938},
     {'date': '2019-11-29', 'open': 3147.18, 'high': 3150.30, 'low': 3139.34, 'close': 3140.98, 'volume': 286602291},
     ])
+
+buy_price = 0
+sell_price = 0
+
 #change 'date' collum into a dateTime object
 data.date = pd.to_datetime(data.date)
 
@@ -19,3 +23,8 @@ data = data.set_index('date')
 
 # plot the data
 mpf.plot(data, type="candle", title="CandleStick Chart Test")
+
+# create a subplot to show out sell/buy price
+
+
+#look into how to use an intersect/ observer in Python
