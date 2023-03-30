@@ -15,10 +15,20 @@
 # install required packages using the command:
     pip install -r requirements.txt
 
-#Ran Jupyter Notebooks using the command:
+# Alternatively, install dependencies manually:
+# Install matplotlib using the command:
+    python -m pip install -U matplotlib
+
+# Install Pandas using the command:
+    pip install pandas
+
+#install mlpFinance using the command:
+    pip install --upgrade mplfinance
+
+# Install yfinance using the command:
+    pip install yfinance --upgrade --no-cache-dir
+
+#Run Jupyter Notebooks using the command:
     jupyter notebook
 
-****    new steps   ****
-#installed mlpFinance using the command
-pip install --upgrade mplfinance
 
