@@ -1,27 +1,34 @@
-#Initially created a clean installation of the latest python 3.11
+#using a clean installation of python 3.11 from https://www.python.org/downloads/
 
-#installed/upgraded pip using the command:
-py -m pip install --upgrade pip
+#install/upgrade pip using the command:
+    py -m pip install --upgrade pip
 
 #Created a new virtual environment using the command:
-py -m venv env
+    py -m venv env
 
-#verified I was using the virtual environment using the command:
-where python
+#Activated the virtual environment using the command:
+    .\env\Scripts\activate
 
-# Installed Jupyter Notebook using the command:
-pip install notebook
+#Confirm you are using the virtual environment using the command:
+    where python
 
-#Created a requirements.txt file using the command:
- pip freeze > requirements.txt
+# install required packages using the command:
+    pip install -r requirements.txt
 
-#Ran Jupyter Notebook using the command:
-jupyter notebook
+# Alternatively, install dependencies manually:
+# Install matplotlib using the command:
+    python -m pip install -U matplotlib
+
+# Install Pandas using the command:
+    pip install pandas
+
+#install mlpFinance using the command:
+    pip install --upgrade mplfinance
+
+# Install yfinance using the command:
+    pip install yfinance --upgrade --no-cache-dir
+
+#Run Jupyter Notebooks using the command:
+    jupyter notebook
 
 
-# Experimented with Git as per Pavlo's direction:
-# 1. Create repo with initial empty commit to "master" branch.
-# 2. Locally create new branch from master lets name it for example "james-issue-1".
-# 3. Make changes in "james-issue-1".
-# 4. Push "james-issue-1" to github.
-# 5. Create Pull Request from "james-issue-1" to "master".
