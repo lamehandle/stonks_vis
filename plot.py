@@ -1,7 +1,7 @@
 import pandas as pd
 import mplfinance as mpf
 import yfinance as yf
-
+import ticker as tk
 
 # Valid periods are: 1d, 5d, 1mo, 3mo, 6mo, 1y, 2y, 5y, 10y, ytd, max:
 period = "1mo"
@@ -21,3 +21,7 @@ subplot = mpf.make_addplot(SWTSX)
 
 # Plot with additional subplot:
 mpf.plot(dow, volume=True, type="candle", addplot=subplot, style="yahoo")
+
+# Capture
+buy_price = (input("Enter your buy price: "))
+sell_price = (input("Enter your sell price: "))
