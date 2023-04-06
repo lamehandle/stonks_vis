@@ -1,13 +1,16 @@
 import pandas as pd
 import mplfinance as mpf
 import yfinance as yf
-import ticker as tk
+from stock import stock
 
-# Valid periods are: 1d, 5d, 1mo, 3mo, 6mo, 1y, 2y, 5y, 10y, ytd, max:
 period = "1mo"
+# Valid periods are: 1d, 5d, 1mo, 3mo, 6mo, 1y, 2y, 5y, 10y, ytd, max:
+
+dow = stock("^DJI")  # todo I don't understand why this doesn't accept my argument
+dow_hist = dow.history(period)
 
 # create dataframes from historical ticker data:
-dow = pd.DataFrame(yf.Ticker('^DJI').history(period=period))
+# dow = pd.DataFrame(yf.Ticker('^DJI').history(period=period))
 MSFT = pd.DataFrame(yf.Ticker('MSFT').history(period=period))
 AC = pd.DataFrame(yf.Ticker('AC').history(period=period))
 AMZN = pd.DataFrame(yf.Ticker('AMZN').history(period=period))
