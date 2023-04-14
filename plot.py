@@ -1,30 +1,31 @@
 import pandas as pd
-import mplfinance as mpf
+import plotly.graph_objects as go
+import plotly.offline as pyo
 import yfinance as yf
-from stock import stock
+import stock as st
+# import mplfinance as mpf
+pyo.init_notebook_mode()
 
 period = "1mo"
 # Valid periods are: 1d, 5d, 1mo, 3mo, 6mo, 1y, 2y, 5y, 10y, ytd, max:
 
-dow = stock("^DJI")  # todo I don't understand why this doesn't accept my argument
-dow_hist = dow.history(period)
-
-# create dataframes from historical ticker data:
-# dow = pd.DataFrame(yf.Ticker('^DJI').history(period=period))
-MSFT = pd.DataFrame(yf.Ticker('MSFT').history(period=period))
-AC = pd.DataFrame(yf.Ticker('AC').history(period=period))
-AMZN = pd.DataFrame(yf.Ticker('AMZN').history(period=period))
-SWTSX = pd.DataFrame(yf.Ticker('SWTSX').history(period=period))
-
-# Plot data using mplfinance:
-mpf.plot(dow, volume=True, type="candle")
-
-# create subplots:
-subplot = mpf.make_addplot(SWTSX)
+dow = st.stock("^DJI")
+dow_hist = dow.data.history(period)
 
 # Plot with additional subplot:
 mpf.plot(dow, volume=True, type="candle", addplot=subplot, style="yahoo")
 
-# Capture
-buy_price = (input("Enter your buy price: "))
-sell_price = (input("Enter your sell price: "))
+# df = yf.Ticker('AMZN').history(period='1mo')
+fig = go.Figure(
+    data=[
+        go.Candlestick(
+            x=df.index,
+            open=df['Open'],
+            high=df['High'],
+            low=df['Low'],
+            close=df['Close']
+        ),
+    ]
+)
+
+fig.show()
