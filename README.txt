@@ -22,9 +22,6 @@
 # Install Pandas using the command:
     pip install pandas
 
-#install mlpFinance using the command:
-    pip install --upgrade mplfinance
-
 # Install yfinance using the command:
     pip install yfinance --upgrade --no-cache-dir
 
