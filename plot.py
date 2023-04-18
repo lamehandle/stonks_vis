@@ -1,23 +1,32 @@
-import plotly.graph_objects as go  # MOre complex usage .express utilizes this module under the hood
-import plotly.offline as pyo  # allows for offline usage
-import stock as st  # Wrapper for yfinance
+import plotly.graph_objects as go
+from plotly.subplots import make_subplots
 import yfinance as yf
-# pyo.init_notebook_mode()
+
 
 period = "1mo"  # Valid periods are: 1d, 5d, 1mo, 3mo, 6mo, 1y, 2y, 5y, 10y, ytd, max:
 
-# dow_raw.history(period)
+amzn = yf.Ticker("AMZN").history(period)
+amzn = amzn.reset_index()
 
-dow_raw = st.stock("^DJI")
-dow = yf.Ticker("^DJI").history(period)  # This data works todo refactor to use reset index properly
-print(dow)
-dow2 = dow.reset_index()  # This works because reset_index returns a new dataframe!!!!!
-print(dow2)
+dow = yf.Ticker("^DJI").history(period)
+dow = dow.reset_index()  # reset_index returns a new dataframe
+
 # # Plot a candle stick plot with plotly
-fig = go.Figure(data=[go.Candlestick(x=dow2['Date'],
-                                     open=dow2['Open'],
-                                     high=dow2['High'],
-                                     low=dow2['Low'],
-                                     close=dow2['Close'],
-                                     )])
+fig = make_subplots(rows=1, cols=2)
+fig.add_trace(
+    go.Candlestick(x=dow['Date'],
+                                     open=dow['Open'],
+                                     high=dow['High'],
+                                     low=dow['Low'],
+                                     close=dow['Close'],
+                                   ), row=1, col=1)
+
+fig.add_trace(
+    go.Candlestick(x=amzn['Date'],
+                                     open=amzn['Open'],
+                                     high=amzn['High'],
+                                     low=amzn['Low'],
+                                     close=amzn['Close'],
+                                    ), row=1, col=2)
+
 fig.show()
