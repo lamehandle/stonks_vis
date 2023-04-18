@@ -16,11 +16,11 @@
     pip install -r requirements.txt
 
 # Alternatively, install dependencies manually:
-# Install matplotlib using the command:
-    python -m pip install -U matplotlib
-
 # Install Pandas using the command:
     pip install pandas
+
+# Install plotly using the command:
+    pip install plotly
 
 # Install yfinance using the command:
     pip install yfinance --upgrade --no-cache-dir
